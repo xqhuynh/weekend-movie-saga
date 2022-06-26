@@ -9,6 +9,14 @@ function DetailsPage() {
   // params is id at path /details/:id
   let { id } = useParams();
 
+  // useEffect to dispatch movie genre
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_MOVIE_GENRE",
+      payload: id,
+    });
+  }, []);
+
   // Function for movie id logic
   // Loop through movies array and set 'movie' to 'detail' empty object
   // if movie.id matches id
