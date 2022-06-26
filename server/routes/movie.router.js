@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 });
 
-// GET route for '/:id'
+// GET route for '/:id' for details view
 router.get('/:id', (req, res) => {
 
   let id = req.params.id;

@@ -29,13 +29,16 @@ function DetailsPage() {
     }
   };
 
-  return;
-  <>
-    <h4>Movie Details Info</h4>
-    <img src={details.poster} />
-    <h5>detail.description</h5>
-    <button onClick={() => history.push("/")}>Back To Movies</button>
-  </>;
+  movieDetail();
+
+  return (
+    <>
+      <h4>Movie Details Info</h4>
+      <img src={details.poster} />
+      <h5>detail.description</h5>
+      <button onClick={() => history.push("/")}>Back To Movies</button>
+    </>
+  );
 }
 
 export default DetailsPage;
