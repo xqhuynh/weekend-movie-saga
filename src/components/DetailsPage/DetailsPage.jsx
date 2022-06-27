@@ -6,41 +6,35 @@ function DetailsPage() {
   const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies);
   const history = useHistory();
-  // params is id at path /details/:id
+
+  // Params are set to id when details/:id is added to app route path
   let { id } = useParams();
+  // params is id at path /details/:id
+  let detail = {};
+  console.log("In details page with id", id);
 
-  // useEffect to dispatch movie genre
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_MOVIE_GENRES",
-      payload: id,
-    });
-  }, []);
-
-  // Function for movie id logic
-  // Loop through movies array and set 'movie' to 'detail' empty object
-  // if movie.id matches id
-  let details = {};
-  const movieDetail = () => {
+  // function to get movide detail using logic
+  // if movie.id matches useParams id, then sent movie to detail
+  function findMovieDetail() {
+    // console.log('ID is ', id);
     for (let movie of movies) {
       if (movie.id === Number(id)) {
-        details = movie;
+        detail = movie;
       }
-    }
-  };
+    } // end of for loop
+  }
 
-  movieDetail();
+  findMovieDetail();
 
   return (
     <>
       <div>
         <div>
-          <h4>MOVIE DETAILS</h4>
-          <img src={movieDetail.poster} alt={movieDetail.title} />
+          <h4>Move Details</h4>
+          <img src={detail.poster} alt={detail.title} />
           <div>
-            <h2>{movieDetail.title}</h2>
-            <ul></ul>
-            <h5>{movieDetail.description}</h5>
+            <h2>{detail.title}</h2>
+            <h5>{detail.description}</h5>
           </div>
           <div>
             <button onClick={() => history.push("/")}>Back to List</button>
