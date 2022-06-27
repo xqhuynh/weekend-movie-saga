@@ -68,6 +68,9 @@ function* fetchMovie(action) {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+
+// REDUX STORE --------------------------------------------------
+
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
@@ -90,7 +93,7 @@ const genres = (state = [], action) => {
 
 const movieItem = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_MOVIE_ITEM':
+        case 'FETCH_ACTIVE_MOVIE':
             return action.payload;
         default:
             return state;

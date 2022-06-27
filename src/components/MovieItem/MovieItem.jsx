@@ -8,10 +8,11 @@ function MovieItem({ movie }) {
   // Dispatch action with type 'SET_MOVIE'
   // call function in img onClick and set argument to 'movie'
   const setMovieItem = (movie) => {
-    dispatch({ type: "SET_MOVIE_ITEM", payload: movie.id });
+    dispatch({ type: "FETCH_ACTIVE_MOVIE", payload: movie.id });
     console.log("setMovie", movie.id);
     history.push(`details/${movie.id}`);
   };
+  // Alternatively, use Link instead of history
 
   return (
     <div className="card">
