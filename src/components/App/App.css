@@ -35,6 +35,10 @@
   margin: auto;
 }
 
+.card > h4 {
+  overflow-wrap: break-word;
+}
+
 .card-img {
   width: 100%;
 }
@@ -56,4 +60,12 @@
 
 .title-info {
   font-size: 1.5rem;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
