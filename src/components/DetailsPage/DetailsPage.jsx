@@ -12,7 +12,7 @@ function DetailsPage() {
   // useEffect to dispatch movie genre
   useEffect(() => {
     dispatch({
-      type: "FETCH_MOVIE_GENRE",
+      type: "FETCH_MOVIE_GENRES",
       payload: id,
     });
   }, []);
@@ -35,7 +35,7 @@ function DetailsPage() {
     <>
       <h4>Movie Details Info</h4>
       <img src={details.poster} />
-      <h5>detail.description</h5>
+      <h5>{details.description}</h5>
       <button onClick={() => history.push("/")}>Back To Movies</button>
     </>
   );

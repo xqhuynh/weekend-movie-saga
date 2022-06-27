@@ -14,6 +14,22 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_MOVIES_GENRES', fetchMovieGenres);
+}
+
+// function to GET all movie genres from db
+// use try and catch
+function* fetchMovieGenres(action) {
+    try {
+        const response = yield axios.get(`/api/genres/${action.payload}`)
+        yield put({
+            type: 'SET_GENRES',
+            payload: response.data
+        })
+    }
+    catch (error) {
+        console.log('Error in fetchMovieGenre', error);
+    }
 }
 
 function* fetchAllMovies() {
@@ -21,12 +37,30 @@ function* fetchAllMovies() {
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
-        yield put({ type: 'SET_MOVIES', payload: movies.data });
+        yield put({
+            type: 'SET_MOVIES',
+            payload: movies.data
+        });
 
     } catch {
         console.log('get all error');
     }
-        
+
+    // function to get one movie details from db
+    function* fetchMovie(action) {
+        try {
+            let id = action.payload
+            const oneMovie = yield axios.get(`api/movie/${id}`)
+            yield put({
+                type: 'SET_DETAILS',
+                payload: oneMovie.data
+            })
+        }
+        catch (error) {
+            console.log('GET single movie error', error);
+        }
+    }
+
 }
 
 // Create sagaMiddleware
@@ -52,11 +86,21 @@ const genres = (state = [], action) => {
     }
 }
 
+const movieItem = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_MOVIE_ITEM':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieItem
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
@@ -68,7 +112,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
