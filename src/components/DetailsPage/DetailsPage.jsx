@@ -1,5 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 function DetailsPage() {
   const movies = useSelector((store) => store.movies);
@@ -26,18 +28,17 @@ function DetailsPage() {
 
   return (
     <>
-      <div>
-        <div>
-          <h4>Move Details</h4>
-          <img src={detail.poster} alt={detail.title} />
-          <div>
-            <h2>{detail.title}</h2>
-            <h5>{detail.description}</h5>
-          </div>
-          <div>
-            <button onClick={() => history.push("/")}>Back to List</button>
-          </div>
-        </div>
+      <div className="details-container">
+        <h3 className="title-info">{detail.title}</h3>
+        <Card style={{ width: "20rem" }}>
+          <Card.Img className="card-img" variant="top" src={detail.poster} />
+          <Card.Body>
+            <Card.Text>{detail.description}</Card.Text>
+            <Button varian="primary" onClick={() => history.push("/")}>
+              Back to Movie List
+            </Button>
+          </Card.Body>
+        </Card>
       </div>
     </>
   );

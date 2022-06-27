@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -19,6 +18,42 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.details-container {
+  margin-bottom: 50px;
+}
+
+.card {
+  border: 1px solid black;
+  margin: auto;
+}
+
+.card-img {
+  width: 100%;
+}
+
+.card-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.btn {
+  color: white;
+  background-color: blue;
+  width: 150px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.title-info {
+  font-size: 1.5rem;
 }
