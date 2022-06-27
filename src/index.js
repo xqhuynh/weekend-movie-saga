@@ -12,6 +12,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
 // Create the rootSaga generator function
+// add fetchMovie()
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_MOVIES_GENRES', fetchMovieGenres);
@@ -49,6 +50,7 @@ function* fetchAllMovies() {
 }
 
 // function to get one movie details from db
+// route is `api/movie/${id}`
 function* fetchMovie(action) {
     try {
         let id = action.payload
