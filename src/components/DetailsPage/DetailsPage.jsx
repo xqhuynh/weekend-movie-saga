@@ -33,10 +33,20 @@ function DetailsPage() {
 
   return (
     <>
-      <h4>Movie Details Info</h4>
-      <img src={details.poster} />
-      <h5>{details.description}</h5>
-      <button onClick={() => history.push("/")}>Back To Movies</button>
+      <div>
+        <div>
+          <h4>MOVIE DETAILS</h4>
+          <img src={movieDetail.poster} alt={movieDetail.title} />
+          <div>
+            <h2>{movieDetail.title}</h2>
+            <ul></ul>
+            <h5>{movieDetail.description}</h5>
+          </div>
+          <div>
+            <button onClick={() => history.push("/")}>Back to List</button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
