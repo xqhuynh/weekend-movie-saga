@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { useEffect } from "react";
 
 function DetailsPage() {
-  const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies);
   const history = useHistory();
 
