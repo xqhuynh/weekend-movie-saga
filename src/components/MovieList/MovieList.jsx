@@ -5,8 +5,10 @@ import MovieItem from "../MovieItem/MovieItem";
 
 function MovieList() {
   const dispatch = useDispatch();
+  // use movies reducer from store
   const movies = useSelector((store) => store.movies);
 
+  // add useEffect to fetch movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);

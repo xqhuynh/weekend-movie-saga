@@ -12,12 +12,12 @@ function App() {
           <MovieList />
         </Route>
 
-        {/* Details page */}
+        {/* Details page  w/path /details/:id */}
         <Route path="/details/:id">
           <DetailsPage />
         </Route>
 
-        {/* Add Movie page */}
+        {/* Add Movie page for later use with 3rd party api */}
       </Router>
     </div>
   );

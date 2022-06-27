@@ -6,6 +6,7 @@ function MovieItem({ movie }) {
   const history = useHistory();
 
   // Dispatch action with type 'SET_MOVIE'
+  // call function in img onClick and set argument to 'movie'
   const setMovieItem = (movie) => {
     dispatch({ type: "SET_MOVIE_ITEM", payload: movie.id });
     console.log("setMovie", movie.id);
@@ -18,7 +19,7 @@ function MovieItem({ movie }) {
       <img
         onClick={() => setMovieItem(movie)}
         src={movie.poster}
-        alt={movie.title}
+        alt={movie.title} // alternative text if image load error
       />
     </div>
   );
