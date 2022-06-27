@@ -2,12 +2,17 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList'
 import DetailsPage from '../DetailsPage/DetailsPage';
+import SearchForm from '../SearchForm/SearchForm';
 
 function App() {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>
+        <Route path='/search'>
+          <SearchForm />
+        </Route>
+
         <Route path="/" exact>
           <MovieList />
         </Route>
