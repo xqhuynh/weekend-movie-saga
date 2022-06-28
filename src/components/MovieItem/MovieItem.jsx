@@ -8,6 +8,8 @@ function MovieItem({ movie }) {
   // Dispatch action with type 'SET_MOVIE'
   // call function in img onClick and set argument to 'movie'
   const setMovieItem = (movie) => {
+    // add useEffect with params.id argument
+    // refresh on details goal
     dispatch({ type: "FETCH_ACTIVE_MOVIE", payload: movie.id });
     console.log("setMovie", movie.id);
     history.push(`details/${movie.id}`);

@@ -53,7 +53,7 @@ function* fetchAllMovies() {
 // route is `api/movie/${id}`
 function* fetchMovie(action) {
     try {
-        let id = action.payload
+        let id = action.payload;
         const oneMovie = yield axios.get(`api/movie/${id}`)
         yield put({
             type: 'SET_DETAILS',
@@ -70,7 +70,6 @@ const sagaMiddleware = createSagaMiddleware();
 
 
 // REDUX STORE --------------------------------------------------
-
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {

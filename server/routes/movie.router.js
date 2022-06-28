@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
       console.log('ERROR: Get all movies', err);
       res.sendStatus(500)
     })
-
 });
 
 // GET route for '/:id' for details view
@@ -23,10 +22,10 @@ router.get('/:id', (req, res) => {
   console.log('id is:', id);
 
   const query = `SELECT FROM movies
-                   WHERE id = ${id};`;
-
+                   WHERE id = $1;`;
   pool.query(query)
     .then((result) => {
+      // can also target 1st row with rows[0] instead of reducer, or component
       res.send(result.rows)
     })
     .catch((err) => {
@@ -53,8 +52,9 @@ router.post('/', (req, res) => {
       // Now handle the genre reference
       const insertMovieGenreQuery = `
       INSERT INTO "movies_genres" ("movie_id", "genre_id")
-      VALUES  ($1, $2);
+      VALUES  ($1, $2); 
       `
+      // send multiple genres: 
       // SECOND QUERY ADDS GENRE FOR THAT NEW MOVIE
       pool.query(insertMovieGenreQuery, [createdMovieId, req.body.genre_id]).then(result => {
         //Now that both are done, send back success!

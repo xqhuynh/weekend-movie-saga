@@ -45,6 +45,13 @@ function DetailsPage() {
             </Button>
           </Card.Body>
         </Card>
+        {/* To render categories */}
+        {/* <ul>
+          {movieDetail.genres &&
+            movieDetail.genres.map((genre) => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+        </ul> */}
       </div>
     </>
   );
