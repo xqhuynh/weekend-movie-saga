@@ -15,7 +15,7 @@ function DetailsPage() {
 
   // function to get movide detail using logic
   // if movie.id matches useParams id, then sent movie to detail
-  // Compare this to Edan's live solve, easier way
+  // Compare this to Edan's live solve, Edan's way is easier
   function getMovieDetail() {
     // console.log('ID is ', id);
     for (let movie of movies) {
