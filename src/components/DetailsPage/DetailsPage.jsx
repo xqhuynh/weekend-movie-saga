@@ -15,6 +15,7 @@ function DetailsPage() {
 
   // function to get movide detail using logic
   // if movie.id matches useParams id, then sent movie to detail
+  // Compare this to Edan's live solve, easier way
   function getMovieDetail() {
     // console.log('ID is ', id);
     for (let movie of movies) {
@@ -45,7 +46,7 @@ function DetailsPage() {
             </Button>
           </Card.Body>
         </Card>
-        {/* To render categories */}
+        {/* To render categories, need dispatch w/type FETCH_ACTIVE_MOVIE */}
         {/* <ul>
           {movieDetail.genres &&
             movieDetail.genres.map((genre) => (
