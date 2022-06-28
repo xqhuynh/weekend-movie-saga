@@ -5,6 +5,8 @@ const axios = require('axios');
 
 router.get('/genre/:id', (req, res) => {
   // Add query to get all genres
+  // From Edan's live solve
+  // Need to go over and fully comprehend array-agg again
   const queryText = `SELECT movies.*,
                       array_agg(to_json(genres)) AS genres
                       FROM movies
